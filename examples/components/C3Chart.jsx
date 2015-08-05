@@ -115,6 +115,7 @@ let C3Chart = React.createClass({
 			break;
 			case "barStacked":
 				this.drawGraphBarStacked();
+			break;
 		}
 	},
 
