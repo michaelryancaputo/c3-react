@@ -86,7 +86,8 @@ let C3Index = React.createClass({
 					<MenuItem eventKey='3' onClick={this.handleChartTypeChange.bind(null, "pie")}>Pie</MenuItem>
 					<MenuItem eventKey='4' onClick={this.handleChartTypeChange.bind(null, "multiBar")}>MultiBar</MenuItem>
 					<MenuItem eventKey='5' onClick={this.handleChartTypeChange.bind(null, "lineBar")}>Line+Bar</MenuItem>
-					<MenuItem eventKey='6'>Other</MenuItem>
+					<MenuItem eventKey='6' onClick={this.handleChartTypeChange.bind(null, "barStacked")}>Bar Stacked</MenuItem>
+					<MenuItem eventKey='7'>Other</MenuItem>
 				</SplitButton>
 				<SplitButton title={"Data"}>
 					<MenuItem eventKey='1' onClick={this.handleNewDataClick}>New Data</MenuItem>

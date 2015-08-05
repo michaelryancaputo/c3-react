@@ -113,6 +113,8 @@ let C3Chart = React.createClass({
 			case "lineBar":
 				this.drawGraphlLineBar();
 			break;
+			case "barStacked":
+				this.drawGraphBarStacked();
 		}
 	},
 
@@ -224,6 +226,41 @@ let C3Chart = React.createClass({
 			x: "x",
 			columns: this.multiDmsDataPreparator(this.props.data),
 			types: {dataSource1: "bar"},
+		};
+		let graphObjectAxis = {
+			x: { type: "category" } // this needed to load string x value
+		};
+
+		graphObject.data = _.merge(graphObjectData, graphObject.data);
+		graphObject.axis = _.merge(graphObjectAxis, graphObject.axis);
+
+		let chart = c3.generate(graphObject);
+		return chart;
+	},
+
+	drawGraphBarStacked: function() {
+		console.log("drawing Bar Stacked");
+
+		let keys = [];
+		let columns = _.map(this.props.data, function(val) {
+			let output = [];
+			
+			keys.push(val.key);
+			output.push(val.key);
+
+			_.each(val.values, function(value) {
+				output.push(value.value);
+			});
+
+			return output;
+
+		}, []);
+
+		let graphObject = this.graphObject();
+		let graphObjectData = {
+			columns: columns,
+			type: 'bar',
+			groups: [keys]
 		};
 		let graphObjectAxis = {
 			x: { type: "category" } // this needed to load string x value
