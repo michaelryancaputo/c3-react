@@ -29,6 +29,22 @@ let DataStore = Fluxxor.createStore({
 		{
 			key: "dataSource2",
 			values: this.dataGenerator()
+		},
+		{
+			key: "dataSource3",
+			values: this.dataGenerator()
+		},
+		{
+			key: "dataSource4",
+			values: this.dataGenerator()
+		},
+		{
+			key: "dataSource5",
+			values: this.dataGenerator()
+		},
+		{
+			key: "dataSource6",
+			values: this.dataGenerator()
 		}];
 		_type = "bar";
 

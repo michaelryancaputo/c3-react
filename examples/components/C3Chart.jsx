@@ -51,11 +51,17 @@ let C3Chart = React.createClass({
 			data: {},
 			axis: {},
 			bindto: "#chartContainer",
-			color: {
+			color: {}
+		};
+
+		let options = this.props.options;
+		if(options.color){
+			graphObject.color = options.color;
+		} else {
+			options.color = {
 				pattern: this.colors(20)
 			}
-		};
-		let options = this.props.options;
+		}
 		if(options.padding){
 			graphObject.padding = {
 				top: options.padding.top,
@@ -245,7 +251,7 @@ let C3Chart = React.createClass({
 		let keys = [];
 		let columns = _.map(this.props.data, function(val) {
 			let output = [];
-			
+
 			keys.push(val.key);
 			output.push(val.key);
 
